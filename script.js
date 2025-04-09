@@ -1,9 +1,6 @@
 'use strict';
 //Generate Random number | Math.random provides number from 0 to 1 but when you mutiply by 20, it gives number between 0.0 to 19.9999, and the trunc methods truncates all fractional part of number. Also, 1 is added to consider 20th number
-const randomnum = Math.trunc(Math.random() * 20 + 1);
-
-//Show the random number on UI
-document.querySelector('.number').textContent = randomnum;
+let randomnum = Math.trunc(Math.random() * 20 + 1);
 
 let score = 20;
 
@@ -15,8 +12,11 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = 'No Number';
   } else if (guessVal == randomnum) {
     document.querySelector('.message').textContent = 'Woohooo! You won';
-    score++;
-    document.querySelector('.score').textContent = score;
+
+    //Show the random number on UI
+    document.querySelector('.number').textContent = randomnum;
+
+    document.querySelector('body').style.backgroundColor = 'green';
   } else if (guessVal < randomnum) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'Too Low!';
@@ -36,4 +36,15 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+//Reset the game functionality
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.guess').value = '';
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('body').style.backgroundColor = '#222';
+  randomnum = Math.trunc(Math.random() * 20 + 1);
+  document.querySelector('.number').textContent = '?';
 });
