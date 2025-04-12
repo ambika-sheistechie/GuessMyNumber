@@ -118,3 +118,14 @@ h1 {
 .label-highscore {
   margin-bottom: 2rem;
 }
+
+.show-level-message {
+  display: none;
+  font-size: 2rem;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -24,6 +24,10 @@ if (currentLevel == 'easy') {
       document.querySelector('.message').textContent = 'No Number';
     } else if (guessVal == randomnum) {
       document.querySelector('.message').textContent = 'Woohooo! You won';
+      document.querySelector(
+        '.show-level-message'
+      ).textContent = `✅ “You guessed it in ${attempts} out of 10 attempts! Great job! Ready for the next level?`;
+      document.querySelector('.show-level-message').style.display = 'block';
       //Show the random number on UI
       document.querySelector('.number').textContent = randomnum;
       document.querySelector('body').style.backgroundColor = 'green';
